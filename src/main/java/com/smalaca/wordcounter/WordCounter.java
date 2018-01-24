@@ -1,6 +1,6 @@
 package com.smalaca.wordcounter;
 
-import static java.util.Arrays.asList;
+import static java.util.Arrays.stream;
 
 class WordCounter {
     private static final String SEPARATOR = " ";
@@ -12,6 +12,6 @@ class WordCounter {
     }
 
     long count(String word) {
-        return asList(sentence.split(SEPARATOR)).stream().filter(word::equals).count();
+        return stream(sentence.split(SEPARATOR)).filter(word::equals).count();
     }
 }
