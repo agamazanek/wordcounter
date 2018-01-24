@@ -9,6 +9,7 @@ public class WordCounterTest {
     private static final String SOME_WORD = "some";
     private static final String EVERYONE_WORD = "everyone";
     private static final String HELLO_WORD = "Hello";
+    private static final String SMALL_HELLO_WORD = "hello";
     private static final int ZERO = 0;
     private static final int ONE = 1;
     private static final int TWO = 2;
@@ -32,5 +33,12 @@ public class WordCounterTest {
         WordCounter wordCounter = new WordCounter(SOME_SENTENCE);
 
         assertEquals(TWO, wordCounter.count(HELLO_WORD));
+    }
+
+    @Test
+    public void shouldNoBeCaseSensitive() {
+        WordCounter wordCounter = new WordCounter(SOME_SENTENCE);
+
+        assertEquals(TWO, wordCounter.count(SMALL_HELLO_WORD));
     }
 }

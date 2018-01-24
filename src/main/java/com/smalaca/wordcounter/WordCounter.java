@@ -12,6 +12,6 @@ class WordCounter {
     }
 
     long count(String word) {
-        return stream(sentence.split(SEPARATOR)).filter(word::equals).count();
+        return stream(sentence.split(SEPARATOR)).filter(word::equalsIgnoreCase).count();
     }
 }
