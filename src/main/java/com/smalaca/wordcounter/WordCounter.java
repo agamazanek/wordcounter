@@ -8,6 +8,6 @@ class WordCounter {
     }
 
     int count(String word) {
-        return 0;
+        return sentence.contains(word) ? 1 : 0;
     }
 }
