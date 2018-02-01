@@ -15,4 +15,14 @@ public class WordCounterTest {
 
         assertEquals(0, result);
     }
+
+    @Test
+    public void shouldReturnOneWithOneOccurence() {
+        WordCounter wordCounter = new WordCounter();
+        wordCounter.add(SOME_WORD);
+
+        int result = wordCounter.count(SOME_WORD);
+
+        assertEquals(1, result);
+    }
 }

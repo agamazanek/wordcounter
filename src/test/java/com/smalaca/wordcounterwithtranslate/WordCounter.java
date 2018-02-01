@@ -1,7 +1,13 @@
 package com.smalaca.wordcounterwithtranslate;
 
 class WordCounter {
+    private int counter = 0;
+
     int count(String word) {
-        return 0;
+        return counter;
+    }
+
+    void add(String word) {
+        counter++;
     }
 }
