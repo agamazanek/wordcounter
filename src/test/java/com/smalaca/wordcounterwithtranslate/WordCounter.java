@@ -21,11 +21,11 @@ class WordCounter {
         return word.equals(translatedWord)? NO_WORD : countFor(translatedWord);
     }
 
-    private Integer countFor(String translatedWord) {
-        return words.getOrDefault(translatedWord, NO_WORD);
+    private Integer countFor(String word) {
+        return words.getOrDefault(word, NO_WORD);
     }
 
     void add(String word) {
-        words.put(word, count(word) + 1);
+        words.put(word, countFor(word) + 1);
     }
 }

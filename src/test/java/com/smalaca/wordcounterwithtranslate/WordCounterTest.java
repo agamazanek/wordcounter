@@ -72,6 +72,20 @@ public class WordCounterTest {
         assertEquals(2, result);
     }
 
+    @Test
+    public void shouldCountWordsInBothLanguages() {
+        WordCounter wordCounter = new WordCounter(givenPolishEnglishTranslator());
+        wordCounter.add(PL_WORD);
+        wordCounter.add(PL_WORD);
+        wordCounter.add(PL_WORD);
+        wordCounter.add(ENG_WORD);
+        wordCounter.add(ENG_WORD);
+
+        int result = wordCounter.count(ENG_WORD);
+
+        assertEquals(5, result);
+    }
+
     private Translator givenPolishEnglishTranslator() {
         Translator translator = mock(Translator.class);
         given(translator.translate(PL_WORD)).willReturn(ENG_WORD);
