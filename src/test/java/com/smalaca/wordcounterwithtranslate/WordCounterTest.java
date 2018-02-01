@@ -89,7 +89,7 @@ public class WordCounterTest {
     private Translator givenPolishEnglishTranslator() {
         Translator translator = mock(Translator.class);
         given(translator.translate(PL_WORD)).willReturn(ENG_WORD);
-        given(translator.reversed(ENG_WORD)).willReturn(PL_WORD);
+        given(translator.translate(ENG_WORD)).willReturn(PL_WORD);
         return translator;
     }
 }

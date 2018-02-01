@@ -14,7 +14,7 @@ class WordCounter {
     }
 
     int count(String word) {
-        return countFor(word) + countIfDifferent(word, translator.translate(word)) + countIfDifferent(word, translator.reversed(word));
+        return countFor(word) + countIfDifferent(word, translator.translate(word));
     }
 
     private Integer countIfDifferent(String word, String translatedWord) {
