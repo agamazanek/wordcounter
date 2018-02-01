@@ -52,14 +52,30 @@ public class WordCounterTest {
 
     @Test
     public void shouldCountWordsGivenInDifferentLanguage() {
-        Translator translator = mock(Translator.class);
-        given(translator.translate(PL_WORD)).willReturn(ENG_WORD);
-        WordCounter wordCounter = new WordCounter(translator);
+        WordCounter wordCounter = new WordCounter(givenPolishEnglishTranslator());
         wordCounter.add(ENG_WORD);
         wordCounter.add(ENG_WORD);
 
         int result = wordCounter.count(PL_WORD);
 
         assertEquals(2, result);
+    }
+
+    @Test
+    public void shouldCountWordsCountedInDifferentLanguage() {
+        WordCounter wordCounter = new WordCounter(givenPolishEnglishTranslator());
+        wordCounter.add(PL_WORD);
+        wordCounter.add(PL_WORD);
+
+        int result = wordCounter.count(ENG_WORD);
+
+        assertEquals(2, result);
+    }
+
+    private Translator givenPolishEnglishTranslator() {
+        Translator translator = mock(Translator.class);
+        given(translator.translate(PL_WORD)).willReturn(ENG_WORD);
+        given(translator.reversed(ENG_WORD)).willReturn(PL_WORD);
+        return translator;
     }
 }
