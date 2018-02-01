@@ -5,7 +5,8 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class WordCounterTest {
-    private static final String SOME_WORD = "word";
+    private static final String SOME_WORD = "some";
+    private static final String DIFFERENT_WORD = "different";
 
     @Test
     public void shouldReturnZeroWhenNothingGiven() {
@@ -24,5 +25,15 @@ public class WordCounterTest {
         int result = wordCounter.count(SOME_WORD);
 
         assertEquals(1, result);
+    }
+
+    @Test
+    public void shouldReturnZeroWhenDifferentWordAdded() {
+        WordCounter wordCounter = new WordCounter();
+        wordCounter.add(DIFFERENT_WORD);
+
+        int result = wordCounter.count(SOME_WORD);
+
+        assertEquals(0, result);
     }
 }
